@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBConnect {
 	public static Connection getConnection() throws Exception {
-	    String serverName = "localhost"; 
+	    String serverName = "LAPTOP-LC4GIQTL"; 
 	    String dbName = "QUANLYSANTMDT";
 	    String portNumber = "1433";
 	    String instance = ""; 

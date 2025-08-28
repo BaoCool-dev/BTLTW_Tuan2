@@ -5,11 +5,12 @@ import java.sql.Date;
 
 @SuppressWarnings("serial")
 public class User implements Serializable {
-	private int id;
+	private int userID;
 	private String email;
 	private String userName;
 	private String fullName;
-	private String passWord;
+	private String _passWord;
+	private String avatar;
 	private int roleid;
 	private String phone;
 	private Date createdDate;
@@ -17,24 +18,34 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(int id, String email, String userName, String fullName, String passWord, String avatar, int roleid,
+	public User(int userID, String email, String userName, String fullName, String _passWord, String avatar, int roleid,
 			String phone, Date createdDate) {
-		this.id = id;
+		this.userID = userID;
 		this.email = email;
 		this.userName = userName;
 		this.fullName = fullName;
-		this.passWord = passWord;
+		this._passWord = _passWord;
+		this.avatar = avatar ;
 		this.roleid = roleid;
 		this.phone = phone;
 		this.createdDate = createdDate;
 	}
+	
 
-	public int getId() {
-		return id;
+	public String getAvatar() {
+		return avatar;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID= userID;
 	}
 
 	public String getEmail() {
@@ -62,11 +73,11 @@ public class User implements Serializable {
 	}
 
 	public String getPassWord() {
-		return passWord;
+		return _passWord;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassWord(String _passWord) {
+		this._passWord = _passWord;
 	}
 
 	public int getRoleid() {
