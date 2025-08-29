@@ -6,38 +6,32 @@ import java.sql.Date;
 @SuppressWarnings("serial")
 public class User implements Serializable {
 	private int userID;
-	private String email;
 	private String userName;
+	private String email;
 	private String fullName;
-	private String _passWord;
-	private String avatar;
-	private int roleid;
+	private String _password;
+	private String images;
 	private String phone;
-	private Date createdDate;
+	private int status;
+	private String code;
+	private int roleID;
+	private int sellerID;
 
 	public User() {
 	}
 
-	public User(int userID, String email, String userName, String fullName, String _passWord, String avatar, int roleid,
-			String phone, Date createdDate) {
+	public User(int userID, String userName, String email,  String fullName, String _password, String images,String phone, int status,String code,int roleID,int selleID) {
 		this.userID = userID;
 		this.email = email;
 		this.userName = userName;
 		this.fullName = fullName;
-		this._passWord = _passWord;
-		this.avatar = avatar ;
-		this.roleid = roleid;
+		this._password = _password;
+		this.images = images ;
 		this.phone = phone;
-		this.createdDate = createdDate;
-	}
-	
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
+		this.status=status;
+		this.code=code;
+		this.roleID=roleID;
+		this.sellerID=selleID;
 	}
 
 	public int getUserID() {
@@ -45,15 +39,7 @@ public class User implements Serializable {
 	}
 
 	public void setUserID(int userID) {
-		this.userID= userID;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+		this.userID = userID;
 	}
 
 	public String getUserName() {
@@ -64,6 +50,14 @@ public class User implements Serializable {
 		this.userName = userName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getFullName() {
 		return fullName;
 	}
@@ -72,20 +66,20 @@ public class User implements Serializable {
 		this.fullName = fullName;
 	}
 
-	public String getPassWord() {
-		return _passWord;
+	public String get_password() {
+		return _password;
 	}
 
-	public void setPassWord(String _passWord) {
-		this._passWord = _passWord;
+	public void set_password(String _password) {
+		this._password = _password;
 	}
 
-	public int getRoleid() {
-		return roleid;
+	public String getImages() {
+		return images;
 	}
 
-	public void setRoleid(int roleid) {
-		this.roleid = roleid;
+	public void setImages(String images) {
+		this.images = images;
 	}
 
 	public String getPhone() {
@@ -96,13 +90,40 @@ public class User implements Serializable {
 		this.phone = phone;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setStatus(int status) {
+		this.status = status;
 	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public int getRoleID() {
+		return roleID;
+	}
+
+	public void setRoleID(int roleID) {
+		this.roleID = roleID;
+	}
+
+	public int getSellerID() {
+		return sellerID;
+	}
+
+	public void setSellerID(int sellerID) {
+		this.sellerID = sellerID;
+	}
+	
+
+	
 	
 
 }

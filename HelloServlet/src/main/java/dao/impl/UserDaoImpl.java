@@ -26,12 +26,11 @@ public  class UserDaoImpl implements UserDao {
 				User user = new User();
 				user.setUserID(rs.getInt("userID"));
 				user.setUserName(rs.getString("userName"));
-				user.setPassWord(rs.getString("_passWord"));
+				user.set_password(rs.getString("_passWord"));
 				user.setEmail(rs.getString("email"));
 				user.setFullName(rs.getString("fullName"));
-				user.setRoleid(rs.getInt("roleid"));
+				user.setRoleID(rs.getInt("roleid"));
 				user.setPhone(rs.getString("phone"));
-				// user.setCreatedDate(rs.getDate("createdDate"));
 				return user;
 			}
 		} catch (Exception e) {
@@ -58,17 +57,15 @@ public  class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean insert(User user) {
-	    String sql = "INSERT INTO Users (userName, _password, email, fullName, phone, createdDate) VALUES (?, ?, ?, ?, ?, ?)";
+	    String sql = "INSERT INTO Users (userName, email, fullName,_password, phone) VALUES (?, ?, ?, ?, ?)";
 	    try (Connection conn = DBConnect.getConnection();
 	         PreparedStatement ps = conn.prepareStatement(sql)) {
 
 	        ps.setString(1, user.getUserName());
-	        ps.setString(2, user.getPassWord());
-	        ps.setString(3, user.getEmail());
-	        ps.setString(4, user.getFullName());
+	        ps.setString(2, user.getEmail());
+	        ps.setString(3, user.getFullName());
+	        ps.setString(4, user.get_password());
 	        ps.setString(5, user.getPhone());
-	        ps.setDate(6, user.getCreatedDate());
-
 	        int rows = ps.executeUpdate();
 	        return rows > 0;
 	    } catch (Exception e) {

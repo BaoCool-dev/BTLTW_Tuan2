@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(String username, String password) {
 		User user = userDao.get(username);
-		if (user != null && user.getPassWord().equals(password)) {
+		if (user != null && user.get_password().equals(password)) {
 			return user;
 		}
 		return null;
@@ -27,14 +27,28 @@ public class UserServiceImpl implements UserService {
 		if (userDao.checkExistUsername(username)) {
 			return false;
 		}
+		 User user = new User();
+		    user.setUserName(username);
+		    user.set_password(password);
+		    user.setEmail(email);
+		    user.setFullName(fullname);
+		    user.setPhone(phone);
 
-		long millis = System.currentTimeMillis();
-		java.sql.Date date = new java.sql.Date(millis);
-
-		User user = new User(0, username, password, email, fullname, phone, 0, phone, date);
+		    // Gán các giá trị mặc định
+		    user.setImages("default.png");
+		    user.setStatus(1);
+		    user.setCode(generateRandomCode());
+		    user.setRoleID(2);    // 2 = khách hàng
+		    user.setSellerID(0);  // chưa là seller
+		    return userDao.insert(user);
+		 
 		// chỉnh lại constructor User cho đúng thứ tự
 
-		return userDao.insert(user); // phải return kết quả từ DAO
+	}
+
+	private String generateRandomCode() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public boolean checkExistEmail(String email) {
